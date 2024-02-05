@@ -30,7 +30,7 @@ public class LinkCollectorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_link_collector);
 
         RecyclerView recyclerView = findViewById(R.id.linkRecyclerView);
-        linkAdapter = new LinkAdapter(linkList);
+        linkAdapter = new LinkAdapter(linkList, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(linkAdapter);
 
@@ -42,7 +42,7 @@ public class LinkCollectorActivity extends AppCompatActivity {
             }
         });
         // Create and set the adapter
-        linkAdapter = new LinkAdapter(linkList);
+        linkAdapter = new LinkAdapter(linkList, this);
         recyclerView.setAdapter(linkAdapter);
 
         // Set the click listener for URL clicks
