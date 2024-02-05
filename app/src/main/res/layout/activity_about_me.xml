@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <!-- res/layout/activity_about_me.xml -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingLeft="16dp"
+android:paddingTop="16dp"
+android:paddingRight="16dp"
+android:paddingBottom="16dp"
+tools:context=".MeActivity">
+
+<TextView
+    android:id="@+id/nameLabelTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Name:"
+    android:textStyle="bold"
+    android:textSize="18sp"
+    android:layout_marginTop="16dp"/>
+
+<TextView
+    android:id="@+id/nameTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/nameLabelTextView"
+    android:layout_marginTop="8dp"/>
+
+<TextView
+    android:id="@+id/emailLabelTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Email:"
+    android:textStyle="bold"
+    android:textSize="18sp"
+    android:layout_below="@id/nameTextView"
+    android:layout_marginTop="16dp"/>
+
+<TextView
+    android:id="@+id/emailTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/emailLabelTextView"
+    android:layout_marginTop="8dp"/>
+</RelativeLayout>

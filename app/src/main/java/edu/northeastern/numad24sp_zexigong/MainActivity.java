@@ -23,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
         Context parent = this;
         this.meButton.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View v) {
-                CharSequence cs = "Zexi Gong\n gong.zex@northeastern.edu";
-                Toast toast = Toast.makeText(parent /* MyActivity */, cs, Toast.LENGTH_LONG);
-                toast.show();
+            public void onClick(View view) {
+                // Start new activity when the button is clicked
+                Intent intent = new Intent(MainActivity.this, MeActivity.class);
+                startActivity(intent);
             }
         });
         this.clickyButton.setOnClickListener(new View.OnClickListener() {
