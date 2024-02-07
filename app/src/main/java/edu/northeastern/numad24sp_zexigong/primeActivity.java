@@ -32,12 +32,12 @@ public class primeActivity extends AppCompatActivity {
 
         Button findPrimesButton = findViewById(R.id.findPrimesButton);
         statusText = findViewById(R.id.runStatusText);
-//        findPrimesButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startPrimeSearch();
-//            }
-//        });
+        findPrimesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startPrimeSearch(v);
+            }
+        });
 
         Button terminateSearchButton = findViewById(R.id.terminateSearchButton);
         terminateSearchButton.setOnClickListener(new View.OnClickListener() {
@@ -46,10 +46,8 @@ public class primeActivity extends AppCompatActivity {
                 terminatePrimeSearch();
             }
         });
-
-        // Other functionalities as required
     }
-    public void runOnRunnableThread(View view) {
+    public void startPrimeSearch(View v) {
         RunnableThread runnableThread = new RunnableThread();
         new Thread(runnableThread).start();
     }
@@ -58,59 +56,38 @@ public class primeActivity extends AppCompatActivity {
 
         @Override
         public void run() {
-            for (int i = 1; i <= 10; i++) {
-                final int finalI = i;
+            if (!isSearching) {
+            isSearching = true;
+            }
+            int currentNumber = 3;
+            while (isSearching) {
                 //The handler changes the TextView running in the UI thread.
+                int finalCurrentNumber = currentNumber;
                 textHandler.post(new Runnable() {
                     @SuppressLint("SetTextI18n")
                     @Override
                     public void run() {
-                        statusText.setText("New thread (Runnable interface): " + finalI);
-                        if (finalI == 10) {
-                            statusText.setText("");
-                        }
+                        currentNumberTextView.setText("Current Number: " + finalCurrentNumber);
                     }
                 });
+                if (isPrime(currentNumber)) {
+                    textHandler.post(new Runnable() {
+                        @SuppressLint("SetTextI18n")
+                        @Override
+                        public void run() {
+                            latestPrimeTextView.setText("Latest Prime: " + finalCurrentNumber);
+                        }
+                    });
+                }
+                currentNumber += 2;
                 try {
-                    Thread.sleep(1000); //Makes the thread sleep or be inactive for 10 seconds
+                    Thread.sleep(300); //Makes the thread sleep or be inactive for 10 seconds
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         }
     }
-//    private void startPrimeSearch() {
-//        if (!isSearching) {
-//            isSearching = true;
-//            primeSearchThread = new Thread(new Runnable() {
-//                @Override
-//                public void run() {
-//                    // Prime number search logic
-//                    int currentNumber = 3;
-//                    while (isSearching) {
-//                        if (isPrime(currentNumber)) {
-//                            int finalCurrentNumber = currentNumber;
-//                            handler.post(new Runnable() {
-//                                @Override
-//                                public void run() {
-//                                    updateLatestPrime(finalCurrentNumber);
-//                                }
-//                            });
-//                        }
-//                        int finalCurrentNumber1 = currentNumber;
-//                        handler.post(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                updateCurrentNumber(finalCurrentNumber1);
-//                            }
-//                        });
-//                        currentNumber += 2; // Increment by two
-//                    }
-//                }
-//            });
-//            primeSearchThread.start();
-//        }
-//    }
 
     private boolean isPrime(int num) {
         if (num <= 1)
@@ -128,43 +105,8 @@ public class primeActivity extends AppCompatActivity {
         return true;
     }
 
-    private void updateCurrentNumber(final int number) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                currentNumberTextView.setText("Current Number: " + number);
-            }
-        });
-    }
-
-//    private void postUpdateToUI(final int prime) {
-//        handler.post(new Runnable() {
-//            @Override
-//            public void run() {
-//                updateLatestPrime(prime);
-//            }
-//        });
-//    }
-
-    private void updateLatestPrime(final int prime) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                latestPrimeTextView.setText("Latest Prime: " + prime);
-            }
-        });
-    }
-
     private void terminatePrimeSearch() {
         isSearching = false;
-        if (primeSearchThread != null) {
-            try {
-                primeSearchThread.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            primeSearchThread = null;
-        }
     }
 
 }

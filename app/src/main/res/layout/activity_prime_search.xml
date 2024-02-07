@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/currentNumberTextView"
-        android:layout_width="157dp"
-        android:layout_height="21dp"
+        android:layout_width="231dp"
+        android:layout_height="40dp"
         android:layout_marginStart="116dp"
         android:layout_marginTop="54dp"
         android:layout_marginEnd="138dp"
@@ -43,9 +44,6 @@
         android:layout_marginEnd="250dp"
         android:layout_marginBottom="144dp"
         android:text="Find Primes"
-
-        android:onClick="runOnRunnableThread"
-
         app:layout_constraintBottom_toTopOf="@+id/currentNumberTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
