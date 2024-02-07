@@ -22,14 +22,14 @@
 
         </activity>
         <activity android:name=".ClickyActivity">
-            <!-- Add any additional configuration for ClickyActivity if needed -->
         </activity>
         <activity android:name=".MeActivity">
-            <!-- Add any additional configuration for ClickyActivity if needed -->
         </activity>
         <activity android:name=".LinkCollectorActivity">
-            <!-- Add any additional configuration for ClickyActivity if needed -->
         </activity>
+        <activity android:name=".primeActivity">
+        </activity>
+
 
     </application>
 

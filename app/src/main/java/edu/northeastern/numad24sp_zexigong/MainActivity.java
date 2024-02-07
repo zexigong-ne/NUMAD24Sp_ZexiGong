@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private Button meButton;
     private Button clickyButton;
     private Button linkCollectorButton;
+    private Button primeButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         this.meButton = (Button)this.findViewById(R.id.me);
         this.clickyButton = (Button)this.findViewById(R.id.clickyButton);
         this.linkCollectorButton = (Button)this.findViewById(R.id.linkCollectorButton);
+        this.primeButton = (Button)this.findViewById(R.id.primeButton);
         Context parent = this;
         this.meButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -43,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, LinkCollectorActivity.class);
+                startActivity(intent);
+            }
+        });
+        this.primeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, primeActivity.class);
                 startActivity(intent);
             }
         });

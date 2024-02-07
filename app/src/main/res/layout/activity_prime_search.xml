@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/currentNumberTextView"
+        android:layout_width="157dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginEnd="138dp"
+        android:layout_marginBottom="50dp"
+        android:text="Current Number: "
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/terminateSearchButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/latestPrimeTextView" />
+
+    <TextView
+        android:id="@+id/latestPrimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="54dp"
+        android:text="Latest Prime: "
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/currentNumberTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/findPrimesButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/findPrimesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="250dp"
+        android:layout_marginBottom="144dp"
+        android:text="Find Primes"
+
+        android:onClick="runOnRunnableThread"
+
+        app:layout_constraintBottom_toTopOf="@+id/currentNumberTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/terminateSearchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="213dp"
+        android:text="Terminate Search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentNumberTextView" />
+
+    <CheckBox
+        android:id="@+id/pacifierSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="259dp"
+        android:layout_marginTop="151dp"
+        android:layout_marginEnd="23dp"
+        android:text="Pacifier Switch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentNumberTextView" />
+
+    <TextView
+        android:id="@+id/runStatusText"
+        android:layout_width="0dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentNumberTextView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
